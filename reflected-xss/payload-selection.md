@@ -20,20 +20,28 @@ Step 2: Payload logic for HTML body
 
 HTML body-la:
 
+
 <script> tag valid
+  
 
 JavaScript execution direct
+  
 
 Payload requirements:
 
+
 No user interaction
+  
 
 Simple execution proof
+  
 
 
 Selected payload:
 
+
 <script>alert(1)</script>
+
 
 WHY this payload?
 
