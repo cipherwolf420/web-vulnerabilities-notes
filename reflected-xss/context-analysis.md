@@ -3,6 +3,7 @@
 The reflected input was identified in the server-generated HTML response.
 
 Example response fragment:
+
 <p>You searched for reflectiontest123</p>
 
 The input is rendered directly inside the HTML body, without attribute boundaries
