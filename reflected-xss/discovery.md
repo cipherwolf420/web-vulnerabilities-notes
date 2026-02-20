@@ -11,7 +11,9 @@ Headers (User-Agent, Referer)
 Example:
 
 GET /search?q=test
+
 Step 2: Reflection test (NO payload)
+
 q=reflectiontest123
 
 Check response:
