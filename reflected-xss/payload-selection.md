@@ -30,15 +30,21 @@ No user interaction
 
 Simple execution proof
 
-Reliable
 
 Selected payload:
+
 <script>alert(1)</script>
+
 WHY this payload?
-Reason	Explanation
+
+Reason	
+
 Context match	HTML body
+
 Execution	Browser executes <script>
+
 Proof	Alert box
+
 Reliability	Works across browsers
 
 No bypass needed yet — basic reflected XSS confirmed
