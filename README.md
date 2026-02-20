@@ -1,7 +1,7 @@
 # Reflected Cross-Site Scripting (XSS)
 
-This folder documents my **step-by-step research process** for identifying and exploiting
-**Reflected Cross-Site Scripting (XSS)** vulnerabilities.
+This folder documents my structured approach to identifying and validating
+reflected Cross-Site Scripting (XSS) vulnerabilities.
 
 The focus of this write-up is **how the vulnerability was found**, not just the final payload.
 
