@@ -1,34 +1,44 @@
-step 4: payload selection
 
-(WHY THIS PAYLOAD)
+Step 1: Context breaking tests
 
-Now ask:
-
-Which characters break this context?
-
-HTML body context:
-
-Need to escape HTML
-
-< > execution possible
-
-Test payloads incrementally:
+First, harmless characters test :
 
 <
 >
 "
 '
 
-If < not escaped → good sign
+Test result:
 
-Final payload choice:
+< rendered as <
 
+No HTML encoding observed
+
+➡️ HTML injection possible
+
+Step 2: Payload logic for HTML body
+
+HTML body-la:
+
+<script> tag valid
+
+JavaScript execution direct
+
+Payload requirements:
+
+No user interaction
+
+Simple execution proof
+
+Reliable
+
+Selected payload:
 <script>alert(1)</script>
-
 WHY this payload?
+Reason	Explanation
+Context match	HTML body
+Execution	Browser executes <script>
+Proof	Alert box
+Reliability	Works across browsers
 
-<script> valid in HTML body
-
-No user interaction needed
-
-Simple execution proof.
+No bypass needed yet — basic reflected XSS confirmed
