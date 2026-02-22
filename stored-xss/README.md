@@ -35,16 +35,13 @@ real-world application testing and penetration testing workflows:
 1. **Input Discovery**  
    Identify user-controllable inputs that are persisted server-side.
 
-2. **Storage Flow Analysis**  
-   Map how data moves from submission to storage and eventual rendering.
-
-3. **Rendering Context Analysis**  
+2. **Rendering Context Analysis**  
    Determine how and where stored data is embedded in HTML responses.
 
-4. **Exploitability Validation**  
+3. **Exploitability Validation**  
    Confirm whether stored input can lead to JavaScript execution.
 
-5. **Impact Assessment**  
+4. **Impact Assessment**  
    Evaluate realistic security implications based on victim scope and context.
 
 Each phase is documented separately to clearly demonstrate
