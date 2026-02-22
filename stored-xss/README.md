@@ -1,53 +1,68 @@
 
+
 # Stored Cross-Site Scripting (XSS)
 
-This folder documents a structured methodology for identifying, analyzing,
-and validating **Stored Cross-Site Scripting (XSS)** vulnerabilities.
+## Summary
 
-Unlike reflected XSS, stored XSS involves user-controlled input that is
-**persisted by the application** and later rendered to other users,
-making it more impactful and often higher severity.
+A stored Cross-Site Scripting (XSS) vulnerability was identified in a user-controlled
+input field that persists data server-side and renders it without sufficient
+output encoding.
 
-The focus of this write-up is on **understanding data flow, rendering context,
-and execution risk**, rather than simply demonstrating payload execution.
-
----
-
-## What is Stored XSS?
-
-Stored XSS occurs when:
-
-- User-supplied input is accepted and saved by the application
-- The stored data is later retrieved and rendered in an HTML response
-- Output encoding is insufficient at render time
-- Malicious JavaScript executes in the browser of one or more users
-
-Because execution happens when stored content is viewed,
-the attack can affect **multiple users without additional interaction**.
+The issue allows arbitrary JavaScript execution in the context of other users
+viewing the affected content.
 
 ---
 
-## Methodology Followed
+## Vulnerability Details
 
-The analysis follows a step-by-step approach designed to mirror
-real-world application testing and penetration testing workflows:
+During testing, it was observed that user-supplied input submitted through
+the comment functionality is stored in the backend database and rendered
+whenever the associated page is viewed.
 
-1. **Input Discovery**  
-   Identify user-controllable inputs that are persisted server-side.
+No contextual output encoding was applied at render time.
 
-2. **Rendering Context Analysis**  
-   Determine how and where stored data is embedded in HTML responses.
+Example rendering:
 
-3. **Exploitability Validation**  
-   Confirm whether stored input can lead to JavaScript execution.
+```html
+<div class="comment">
+    USER_INPUT_HERE
+</div>
 
-4. **Impact Assessment**  
-   Evaluate realistic security implications based on victim scope and context.
+The application does not sanitize or encode angle brackets,
+allowing injection of executable HTML elements.
 
-Each phase is documented separately to clearly demonstrate
-the reasoning process behind exploitability decisions.
+Proof of Concept
 
----
+The following payload was submitted via the comment field:
+
+<script>alert(document.domain)</script>
+
+Upon viewing the page from a separate authenticated account,
+the script executed automatically without additional interaction.
+
+This confirms that the issue is not self-XSS and impacts other users.
+
+Impact
+
+Successful exploitation allows:
+
+Execution of arbitrary JavaScript in victim sessions
+
+Session token theft (if cookies are accessible)
+
+Account takeover via authenticated request execution
+
+CSRF chaining
+
+Phishing or UI manipulation
+
+Because the payload persists and executes for all viewers,
+the severity is higher than reflected XSS.
+
+Root Cause
+
+The application stores user-controlled input and renders it in
+an HTML body context without applying proper output encoding.
 
 ## Folder Structure
 
