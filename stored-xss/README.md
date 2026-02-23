@@ -1,66 +1,54 @@
-
-
 # Stored Cross-Site Scripting (XSS)
 
-## Summary
+This folder documents my practical testing approach for identifying and
+confirming a **Stored Cross-Site Scripting (XSS)** vulnerability.
 
-A stored Cross-Site Scripting (XSS) vulnerability was identified in a user-controlled
-input field that persists data server-side and renders it without sufficient
-output encoding.
+The goal of this write-up is not just to show a payload,
+but to clearly explain **how a tester reaches the conclusion**
+that an issue is a stored XSS.
 
-The issue allows arbitrary JavaScript execution in the context of other users
-viewing the affected content.
+The steps are written in a simple and logical flow so that
+anyone reading can understand the reasoning behind each decision.
+🔍 What This Write-up Covers
 
----
+This write-up focuses on answering the following questions:
 
-## Vulnerability Details
+How to identify input that is stored server-side
 
-During testing, it was observed that user-supplied input submitted through
-the comment functionality is stored in the backend database and rendered
-whenever the associated page is viewed.
+How to confirm that stored input affects other users
 
-No contextual output encoding was applied at render time.
+How to analyze the rendering context
 
-Example rendering:
+How to verify JavaScript execution
 
-```html
-<div class="comment">
-    USER_INPUT_HERE
-</div>
+Why the issue is classified as stored XSS and not reflected or self-XSS
 
-The application does not sanitize or encode angle brackets,
-allowing injection of executable HTML elements.
+🧪 Testing Methodology (High-Level)
 
-Proof of Concept
+The testing process followed this order:
 
-The following payload was submitted via the comment field:
+Identify user-controlled input that persists
 
-<script>alert(document.domain)</script>
+Confirm that the input is visible across sessions or users
 
-Upon viewing the page from a separate authenticated account,
-the script executed automatically without additional interaction.
+Inspect where and how the input is rendered in HTML
 
-This confirms that the issue is not self-XSS and impacts other users.
+Check for missing output encoding
 
-Impact
+Confirm JavaScript execution using a minimal payload
 
-Successful exploitation allows:
+Analyze impact and root cause
 
-Execution of arbitrary JavaScript in victim sessions
+Each step is documented separately for clarity.
 
-Session token theft (if cookies are accessible)
+📂 File Structure Explained
+stored-xss/
+├── README.md            # Overview and testing approach
+├── analysis.md          # Step-by-step investigation and reasoning
+└── proof-of-concept.md  # Payload execution and impact confirmation
 
-Account takeover via authenticated request execution
+analysis.md
+Contains the detailed testing steps and observations made during analysis.
 
-CSRF chaining
-
-Phishing or UI manipulation
-
-Because the payload persists and executes for all viewers,
-the severity is higher than reflected XSS.
-
-Root Cause
-
-The application stores user-controlled input and renders it in
-an HTML body context without applying proper output encoding.
-
+proof-of-concept.md
+Demonstrates JavaScript execution and explains why the issue is exploitable.
