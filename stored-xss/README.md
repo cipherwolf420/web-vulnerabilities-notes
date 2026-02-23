@@ -47,6 +47,7 @@ stored-xss/
 ├── analysis.md          # Step-by-step investigation and reasoning
 └── proof-of-concept.md  # Payload execution and impact confirmation
 
+
 analysis.md
 Contains the detailed testing steps and observations made during analysis.
 
