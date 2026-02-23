@@ -43,9 +43,9 @@ Each step is documented separately for clarity.
 
 📂 File Structure Explained
 stored-xss/
-├── README.md            * Overview and testing approach
-├── analysis.md          * Step-by-step investigation and reasoning
-└── proof-of-concept.md  * Payload execution and impact confirmation
+├── README.md            # Overview and testing approach.
+├── analysis.md          # Step-by-step investigation and reasoning.
+└── proof-of-concept.md  # Payload execution and impact confirmation.
 
 
 analysis.md
