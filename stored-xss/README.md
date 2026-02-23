@@ -64,11 +64,3 @@ Root Cause
 The application stores user-controlled input and renders it in
 an HTML body context without applying proper output encoding.
 
-## Folder Structure
-
-```text
-stored-xss/
-├── README.md
-├── discovery.md
-├── context-analysis.md
-└── exploitation.md
