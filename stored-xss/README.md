@@ -41,15 +41,24 @@ Analyze impact and root cause
 
 Each step is documented separately for clarity.
 
-📂 File Structure Explained
+## 📂 File Structure Explained
+
+
 stored-xss/
-├── README.md            # Overview and testing approach.
-├── analysis.md          # Step-by-step investigation and reasoning.
-└── proof-of-concept.md  # Payload execution and impact confirmation.
+├── README.md
+├── analysis.md
+└── proof-of-concept.md
 
 
-analysis.md
-Contains the detailed testing steps and observations made during analysis.
+### File Details
 
-proof-of-concept.md
-Demonstrates JavaScript execution and explains why the issue is exploitable.
+- **README.md**  
+  Overview of the stored XSS testing approach and methodology.
+
+- **analysis.md**  
+  Step-by-step investigation notes explaining how the issue was identified,
+  tested, and classified as stored XSS.
+
+- **proof-of-concept.md**  
+  Demonstrates JavaScript execution and explains why the issue is exploitable
+  and impacts other users.
