@@ -33,4 +33,3 @@ Each step is documented separately for clarity and learning purposes.
 
 ---
 
-## 📂 Folder Structure Explained
