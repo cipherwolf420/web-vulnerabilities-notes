@@ -41,14 +41,6 @@ Analyze impact and root cause
 
 Each step is documented separately for clarity.
 
-## 📂 File Structure Explained
-
-
-stored-xss/
-├── README.md
-├── analysis.md
-└── proof-of-concept.md
-
 
 ### File Details
 
