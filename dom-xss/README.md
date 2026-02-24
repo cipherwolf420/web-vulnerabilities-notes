@@ -38,15 +38,15 @@ Confirm JavaScript execution using a minimal payload
 
 Each step is documented clearly in the files below.
 
+### File Details
 
-
-README.md
+- **README.md**
 Overview of DOM XSS testing approach.
 
-analysis.md
+- **analysis.md**  
 Step-by-step investigation showing how data flows from source to sink.
 
-proof-of-concept.md
+- **proof-of-concept.md** 
 Confirms JavaScript execution and explains impact.
 
 
@@ -55,3 +55,4 @@ This issue occurs entirely on the client side.
 No server-side reflection or storage is involved.
 
 Payload execution depends on JavaScript logic in the browser.
+
