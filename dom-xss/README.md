@@ -38,11 +38,7 @@ Confirm JavaScript execution using a minimal payload
 
 Each step is documented clearly in the files below.
 
-📂 File Structure Explained
-dom-xss/
-├── README.md
-├── analysis.md
-└── proof-of-concept.md
+
 
 README.md
 Overview of DOM XSS testing approach.
