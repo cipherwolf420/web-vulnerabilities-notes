@@ -41,10 +41,5 @@ Each step is documented in detail inside `analysis.md`.
 
 ---
 
-## File Structure
 
 
-csrf/
-├── README.md # Overview and testing methodology
-├── analysis.md # Step-by-step investigation notes
-└── proof-of-concept.md # Exploitation confirmation
