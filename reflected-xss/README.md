@@ -46,3 +46,18 @@ Analyze impact and root cause
 
 Each step is documented clearly in the analysis file.
 
+
+
+
+### File Details
+
+- **README.md**  
+  Overview of the reflected XSS testing approach and methodology.
+
+- **analysis.md**  
+ Contains the complete testing flow with step-by-step reasoning,
+including context identification and payload decision logic.
+
+- **proof-of-concept.md**  
+Confirms JavaScript execution and explains exploitability and impact.
+
